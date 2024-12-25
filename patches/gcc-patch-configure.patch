@@ -1,0 +1,90 @@
+diff --git a/gcc/configure b/gcc/configure
+index 4af01a096..1216df2f9 100755
+--- a/gcc/configure
++++ b/gcc/configure
+@@ -25147,12 +25147,12 @@ __FRAME_BEGIN__:
+ 	  cat > conftest.lit <<EOF
+  0000 10000000 00000000 017a0001 781a0004  .........z..x...
+  0010 01000000 12000000 18000000 00000000  ................
+- 0020 08000000 04080000 0044               .........D      
++ 0020 08000000 04080000 0044               .........D
+ EOF
+ cat > conftest.big <<EOF
+  0000 00000010 00000000 017a0001 781a0004  .........z..x...
+  0010 00000001 00000012 00000018 00000000  ................
+- 0020 00000008 04000000 0844               .........D      
++ 0020 00000008 04000000 0844               .........D
+ EOF
+   # If the assembler didn't choke, and we can objdump,
+   # and we got the correct data, then succeed.
+@@ -26410,47 +26410,7 @@ else
+     rm -f conftest.o conftest.s
+   fi
+ fi
+-{ $as_echo "$as_me:${as_lineno-$LINENO}: result: $gcc_cv_as_mmacosx_version_min" >&5
+-$as_echo "$gcc_cv_as_mmacosx_version_min" >&6; }
+-if test $gcc_cv_as_mmacosx_version_min = yes; then
+ 
+-$as_echo "#define HAVE_AS_MMACOSX_VERSION_MIN_OPTION 1" >>confdefs.h
+-
+-fi
+-
+-    if test x$gcc_cv_as_mmacosx_version_min = "xyes"; then
+-       { $as_echo "$as_me:${as_lineno-$LINENO}: checking assembler for .build_version" >&5
+-$as_echo_n "checking assembler for .build_version... " >&6; }
+-if ${gcc_cv_as_darwin_build_version+:} false; then :
+-  $as_echo_n "(cached) " >&6
+-else
+-  gcc_cv_as_darwin_build_version=no
+-  if test x$gcc_cv_as != x; then
+-    $as_echo ' .build_version macos, 10, 14 sdk_version 10, 14' > conftest.s
+-    if { ac_try='$gcc_cv_as $gcc_cv_as_flags -mmacosx-version-min=10.14 -o conftest.o conftest.s >&5'
+-  { { eval echo "\"\$as_me\":${as_lineno-$LINENO}: \"$ac_try\""; } >&5
+-  (eval $ac_try) 2>&5
+-  ac_status=$?
+-  $as_echo "$as_me:${as_lineno-$LINENO}: \$? = $ac_status" >&5
+-  test $ac_status = 0; }; }
+-    then
+-	gcc_cv_as_darwin_build_version=yes
+-    else
+-      echo "configure: failed program was" >&5
+-      cat conftest.s >&5
+-    fi
+-    rm -f conftest.o conftest.s
+-  fi
+-fi
+-{ $as_echo "$as_me:${as_lineno-$LINENO}: result: $gcc_cv_as_darwin_build_version" >&5
+-$as_echo "$gcc_cv_as_darwin_build_version" >&6; }
+-if test $gcc_cv_as_darwin_build_version = yes; then
+-
+-$as_echo "#define HAVE_AS_MACOS_BUILD_VERSION 1" >>confdefs.h
+-
+-fi
+-
+-    fi
+     ;;
+ esac
+ 
+@@ -30871,11 +30831,6 @@ _ACEOF
+   fi
+ 
+ 
+-cat >>confdefs.h <<_ACEOF
+-#define LD64_HAS_DEMANGLE $gcc_cv_ld64_demangle
+-_ACEOF
+-
+-
+ 
+ cat >>confdefs.h <<_ACEOF
+ #define LD64_HAS_EXPORT_DYNAMIC $gcc_cv_ld64_export_dynamic
+@@ -30883,10 +30838,6 @@ _ACEOF
+ 
+ 
+ 
+-cat >>confdefs.h <<_ACEOF
+-#define LD64_HAS_PLATFORM_VERSION $gcc_cv_ld64_platform_version
+-_ACEOF
+-
+ fi
+ 
+ if test x"$dsymutil_flag" = x"yes"; then
